@@ -1,0 +1,22 @@
+{
+  "name": "02-festivalmusica",
+  "version": "1.0.0",
+  "description": "Music Festival Project",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch src/scss:build/css"
+  },
+  "keywords": [
+    "SASS",
+    "Gulp",
+    "HTML"
+  ],
+  "author": "Christian Sosa",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.51.0"
+  }
+}
