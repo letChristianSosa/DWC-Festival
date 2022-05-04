@@ -26,7 +26,7 @@ function webpVersion(done) {
   src("src/img/**/*.{png,jpg}")
     .pipe(webp({ quality: 50 }))
     .pipe(dest("build/img"));
-  done();
+  done(); 
 }
 
 function avifVersion(done) {
@@ -36,8 +36,14 @@ function avifVersion(done) {
   done();
 }
 
+function javascript(done) {
+  src("src/js/**/*.js").pipe(dest("build/js"));
+  done();
+}
+
 function dev(done) {
   watch("src/scss/**/*.scss", css);
+  watch("src/js/**/*.js", javascript);
   done();
 }
 
@@ -45,4 +51,5 @@ exports.css = css;
 exports.imageMin = imageMin;
 exports.webpVersion = webpVersion;
 exports.avifVersion = avifVersion;
+exports.javascript = javascript;
 exports.dev = parallel(imageMin, webpVersion, avifVersion, dev);

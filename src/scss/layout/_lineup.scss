@@ -29,6 +29,11 @@
 
 .scenario {
   padding-top: 2rem;
+  margin-bottom: 2rem;
+
+  @include m.tablet {
+    margin-bottom: 0;
+  }
 
   .scenario-name {
     &:after {
