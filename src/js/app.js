@@ -3,7 +3,38 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function startApp() {
+  navFixed();
   createGallery();
+  scrollNav();
+}
+
+// Para hacer scroll suavemente
+function scrollNav() {
+  const links = document.querySelectorAll(".main-nav a");
+  links.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const sectionScroll = e.target.attributes.href.value;
+      const section = document.querySelector(sectionScroll);
+      section.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+}
+
+function navFixed() {
+  const header = document.querySelector(".header");
+  const aboutFestival = document.querySelector(".about-festival");
+  const body = document.querySelector("body");
+
+  window.addEventListener("scroll", function () {
+    if (aboutFestival.getBoundingClientRect().bottom < 0) {
+      header.classList.add("fixed");
+      body.classList.add("body-scroll");
+    } else {
+      header.classList.remove("fixed");
+      body.classList.remove("body-scroll");
+    }
+  });
 }
 
 function createGallery() {
